@@ -1,6 +1,6 @@
 # gshade_installer
 
-This is a CLI [GShade](https://gposers.com/gshade/) installer for Linux.  It both downloads and updates GShade and can be used to install / update your GShade installs for individual games that will be run through WINE.
+This is a CLI [GShade](https://gshade.org/) installer for Linux.  It both downloads and updates GShade and can be used to install / update your GShade installs for individual games that will be run through WINE.
 
 Please note that as of 06-21-22, this installer no longer interacts with WINE directly, as it seems to no longer be necessary.  The previous script can be found in the `legacy` branch.
 
@@ -40,7 +40,7 @@ Additional requirements for Mac:
 ### Installation
 
 There's multiple ways to run the installer, this is just one method.
-  1) Clone the repo:  `git clone https://github.com/HereInPlainSight/gshade_installer.git`
+  1) Clone the repo:  `git clone https://github.com/Mortalitas/GShade-Bash-Installer.git`
   2) Change directory into it:  `cd gshade_installer`
   3) Run the script:  `./gshade_installer.sh`
 
