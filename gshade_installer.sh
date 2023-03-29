@@ -1128,7 +1128,7 @@ update() {
       old32="$(getMD5 GShade32.dll)"
     fi
     printf "\e[2K\rDownloading latest GShade...                     "
-    curl -sLO https://gshade.org/releases/GShade.Latest.zip
+    curl -sLO https://github.com/Mortalitas/GShade/releases/latest/download/GShade.Latest.zip
     unzip -qqo GShade.Latest.zip
     printf "\e[2K\rRestoring any applicable GShade.ini settings...  "
     restoreSettings
