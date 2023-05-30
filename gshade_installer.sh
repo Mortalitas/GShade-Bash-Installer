@@ -1031,11 +1031,11 @@ presetAndShaderUpdate() {
   mkdir tmpDir
   if [ "$IS_MAC" = true ] ; then
     ditto -xk GGShade-Presets-master.zip tmpDir/gshade-presets && rm -r GShade-Presets-master.zip gshade-presets && mv tmpDir/gshade-presets/GShade-Presets-master ./gshade-presets #has to be extracted with ditto because of special chars on APFS
-    ditto -xk GShade-C-Shaders.zip tmpDir && rm -r GShade-C-Shaders.zip gshade-shaders && mv tmpDir/gshade-shaders/GShade-C-Shaders-main ./gshade-shaders
+    ditto -xk GShade-C-Shaders.zip tmpDir && rm -r GShade-C-Shaders.zip gshade-shaders && mv tmpDir/gshade-shaders/GShade-C-Shaders-main/gshade-shaders ./gshade-shaders
     ditto -xk main.zip tmpDir && rm -r main.zip gshade-shaders && mv tmpDir/gshade-shaders/iMMERSE-main ./gshade-shaders && rm -r tmpDir
   else
     unzip -qquo GShade-Presets-master.zip -d tmpDir/gshade-presets && rm -r GShade-Presets-master.zip gshade-presets && mv tmpDir/gshade-presets/GShade-Presets-master ./gshade-presets
-    unzip -qquo GShade-C-Shaders-main.zip -d tmpDir && rm -r GShade-C-Shaders-main.zip gshade-shaders && mv tmpDir/gshade-shaders/GShade-C-Shaders-main ./gshade-shaders
+    unzip -qquo GShade-C-Shaders-main.zip -d tmpDir && rm -r GShade-C-Shaders-main.zip gshade-shaders && mv tmpDir/gshade-shaders/GShade-C-Shaders-main/gshade-shaders ./gshade-shaders
     unzip -qquo main.zip -d tmpDir && rm -r main.zip gshade-shaders && mv tmpDir/gshade-shaders/iMMERSE-main ./gshade-shaders && rm -r tmpDir
   fi
   updateInstalls presets
