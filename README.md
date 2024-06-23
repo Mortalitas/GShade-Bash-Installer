@@ -2,7 +2,7 @@
 
 This is a CLI [GShade](https://gshade.org/) installer for Linux.  It both downloads and updates GShade and can be used to install / update your GShade installs for individual games that will be run through WINE.
 
-Please note that as of 06-21-22, this installer no longer interacts with WINE directly, as it seems to no longer be necessary.  The previous script can be found in the `legacy` branch.
+Please note that as of 06-21-22, this installer no longer interacts with WINE directly, as it seems to no longer be necessary.
 
 ## Getting Started
 
@@ -82,7 +82,7 @@ A: Anything Mac-related has been contributed by the good people at [XIV on Mac](
 
 ## Help
 
-If you need further help, please check the [GPoser's discord](https://discord.gg/gposers) for the `gshade-troubleshooting` channel.
+If you need further help, please check the [GShade Discord](https://discord.gg/CH9bMvDfQk) for the `#troubleshooting` channel.
 
 ## Acknowledgments
 
