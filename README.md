@@ -69,29 +69,13 @@ If you're having trouble and asking a friend for help, you can use `./gshade_ins
 
 ## Troubleshooting
 
-Q: Help, I'm using the default launcher but once I install GShade, the launcher stops launching!
-
-A: Known issue -- with the 32-bit launcher.
-   - Lutris: Open XIV's `Configure`, in the `Game Options` tab change the `Executable` from `ffxivboot.exe` to `ffxivboot64.exe`.
-   - Steam: Open XIV's `properties` dialog and set your `Launch Options` to:
-     - `echo "%command%" | sed 's/ffxivboot.exe/ffxivboot64.exe/' | sh`
-
-Q: I'm on a Mac --
-
-A: Anything Mac-related has been contributed by the good people at [XIV on Mac](https://www.xivmac.com/).  If your question is XIV-specific, you'll almost *certainly* want to contact them directly.
-
-## Help
-
-If you need further help, please check the [GShade Discord](https://discord.gg/CH9bMvDfQk) for the `#troubleshooting` channel.
-
-## Acknowledgments
-
-* Thanks to Marot on the GPosers discord for -- absolutely everything they do.
+If you need assistance, please check the [GShade Discord](https://discord.gg/CH9bMvDfQk) for the `#troubleshooting` channel.
 
 ## Contributors
 
 If you are a code contributor, please feel free to add yourself to the list during your commit!  My memory is roughly sieve-shaped!
 
+* [@HereInPlainSight](https://github.com/HereInPlainSight) - Original creator of this batch script, without whom it would not exist.
 * [@JacoG-RH](https://github.com/JacoG-RH) - Non-standard Steam libraries.
 * [@Maia-Everett](https://github.com/Maia-Everett) - Support for Wine Steam, locating game via wine registry, and `$HOME/.wine` checking.
 * [@taylor85345](https://github.com/taylor85345) - XIVLauncher.Core auto-detection.
