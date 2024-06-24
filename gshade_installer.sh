@@ -1125,6 +1125,7 @@ update() {
         done < "$dbFile"
       fi
     fi
+    rm -rf "$GShadeHome/gshade-shaders"
     presetAndShaderUpdate
     if [[ -f "$GShadeHome/GShade.ini" ]]; then
       printf "Saving GShade.ini settings..."
@@ -1498,7 +1499,7 @@ menu() {
   printf "Welcome to GShade!  Please select an option:
 	1) Update GShade and presets
 	2) Install to a custom game
-	P) Update presets only
+	P) Update remote shader repositories and presets only
 	F) Attempt auto-install for FFXIV
 	U) Force update GShade installation
 	B) Create a backup of existing GShade game installations
