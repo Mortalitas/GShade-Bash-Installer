@@ -1002,10 +1002,19 @@ updateInstalls() {
       if [[ $updating == "all" ]] && [[ $(find "$installDir" -maxdepth 1 -lname "$GShadeHome/*.dll" -print) == "" ]]; then
         gArch=""
         md5goal=""
-        if printf "%s/%s" "$installDir" "$gameName" | grep -q "80386"; then
-          gArch="32"; md5goal="$old32"
-        elif printf "%s/%s" "$installDir" "$gameName" | grep -q "x86-64"; then
+        if printf "%s/%s" "$installDir" "$gameName" | grep -q "x86-64"; then
           gArch="64"; md5goal="$old64"
+        elif printf "%s/%s" "$installDir" "$gameName" | grep -q "80386"; then
+          gArch="32"; md5goal="$old32"
+        else
+          while [ "${ARCH}" != "64"] || [ "${ARCH}" != "32" ]; do
+            read -p "What is the executable's architecture? (x86, x86-64): " -r input
+            case $input in
+              x86    | 1 ) md5goal="$old32"; break;;
+              x86-64 | 2 ) md5goal="$old64"; break;;
+              * ) printf "Invalid option.\n";;
+            esac
+          done
         fi
         gName=$(basename "$(find "$installDir" -maxdepth 1 \( -name "d3d*.dll" ! -name "d3dcompiler_47.dll" \))")
         if [ -f "$installDir/opengl32.dll" ]; then gName="opengl32.dll"; fi
@@ -1180,10 +1189,19 @@ listGames() {
     if [ -z "$gapiln" ]; then
       fileString="$(file "$gameName")"
       gmd5=""
-      if printf "%s" "$fileString" | grep -q "80386"; then
-        gmd5="$(getMD5 "$GShadeHome/GShade32.dll")"
-      elif printf "%s" "$fileString" | grep -q "x86-64"; then
+      if printf "%s" "$fileString" | grep -q "x86-64"; then
         gmd5="$(getMD5 "$GShadeHome/GShade64.dll")"
+      elif printf "%s" "$fileString" | grep -q "80386"; then
+        gmd5="$(getMD5 "$GShadeHome/GShade32.dll")"
+      else
+        while [ "${ARCH}" != "64"] || [ "${ARCH}" != "32" ]; do
+          read -p "What is the executable's architecture? (x86, x86-64): " -r input
+          case $input in
+            x86    | 1 ) gmd5="$(getMD5 "$GShadeHome/GShade32.dll")"; break;;
+            x86-64 | 2 ) gmd5="$(getMD5 "$GShadeHome/GShade64.dll")"; break;;
+            * ) printf "Invalid option.\n";;
+          esac
+        done
       fi
       # Check dxgi and opengl32 before we start hitting find up.
       if [ -f "dxgi.dll" ] && [ "$gmd5" == "$(getMD5 "dxgi.dll")" ]; then gapiln="dxgi.dll"; fi
@@ -1482,13 +1500,19 @@ customGame() {
   pushd "$(dirname "$exeFile")" > /dev/null || exit; gameLoc="$(pwd)/"; popd > /dev/null || exit
   # Determine architecture.
   fileString="$(file "$exeFile")"
-  if printf "%s" "$fileString" | grep -q "80386"; then
-    ARCH="32"
-  elif printf "%s" "$fileString" | grep -q "x86-64"; then
+  if printf "%s" "$fileString" | grep -q "x86-64"; then
     ARCH="64"
+  elif printf "%s" "$fileString" | grep -q "80386"; then
+    ARCH="32"
   else
-    printf "%s: Invalid exe file type.\n" "$exeFile"
-    exit 1
+    while [ "${ARCH}" != "64"] || [ "${ARCH}" != "32" ]; do
+      read -p "What is the executable's architecture? (x86, x86-64): " -r input
+      case $input in
+        x86    | 1 ) ARCH="32"; break;;
+        x86-64 | 2 ) ARCH="64"; break;;
+        * ) printf "Invalid option.\n";;
+      esac
+    done
   fi
   installGame
 }
