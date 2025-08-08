@@ -1007,11 +1007,11 @@ updateInstalls() {
         elif printf "%s/%s" "$installDir" "$gameName" | grep -q "80386"; then
           gArch="32"; md5goal="$old32"
         else
-          while [ "${ARCH}" != "64"] || [ "${ARCH}" != "32" ]; do
+          while [ "${gArch}" != "64"] || [ "${gArch}" != "32" ]; do
             read -p "What is the executable's architecture? (x86, x86-64): " -r input
             case $input in
-              x86    | 1 ) md5goal="$old32"; break;;
-              x86-64 | 2 ) md5goal="$old64"; break;;
+              x86    | 1 ) gArch="32"; md5goal="$old32"; break;;
+              x86-64 | 2 ) gArch="64"; md5goal="$old64"; break;;
               * ) printf "Invalid option.\n";;
             esac
           done
@@ -1194,7 +1194,7 @@ listGames() {
       elif printf "%s" "$fileString" | grep -q "80386"; then
         gmd5="$(getMD5 "$GShadeHome/GShade32.dll")"
       else
-        while [ "${ARCH}" != "64"] || [ "${ARCH}" != "32" ]; do
+        while [ "${gmd5}" == ""] ; do
           read -p "What is the executable's architecture? (x86, x86-64): " -r input
           case $input in
             x86    | 1 ) gmd5="$(getMD5 "$GShadeHome/GShade32.dll")"; break;;
