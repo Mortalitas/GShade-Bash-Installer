@@ -1038,7 +1038,7 @@ presetAndShaderUpdate() {
   curl -sLO "https://gitlab.com/Mortalitas/GShade-C-Shaders/-/archive/main/GShade-C-Shaders-main.zip"
   curl -sLo "iMMERSE-main.zip" "https://github.com/martymcmodding/iMMERSE/archive/refs/heads/main.zip"
   curl -sLo "METEOR-main.zip" "https://github.com/martymcmodding/METEOR/archive/refs/heads/main.zip"
-  curl -sLo "SHADERDECK-main.zip" "https://github.com/TreyM/SHADERDECK/archive/refs/heads/main.zip"
+  curl -sLo "SHADERDECK-main.zip" "https://github.com/IAmTreyM/SHADERDECK/archive/refs/heads/main.zip"
   mkdir tmpDir
   if [ "$IS_MAC" = true ] ; then
     ditto -xk "GGShade-Presets-master.zip" "tmpDir/gshade-presets" && rm "GShade-Presets-master.zip" && cp -af "tmpDir/gshade-presets/GShade-Presets-master/FFXIV/"* "gshade-presets" #has to be extracted with ditto because of special chars on APFS
