@@ -1042,13 +1042,13 @@ presetAndShaderUpdate() {
   mkdir tmpDir
   if [ "$IS_MAC" = true ] ; then
     ditto -xk "GShade-Presets-master.zip" "tmpDir/gshade-presets" && rm "GShade-Presets-master.zip" && cp -af "tmpDir/gshade-presets/GShade-Presets-master/FFXIV/"* "gshade-presets" #has to be extracted with ditto because of special chars on APFS
-    ditto -xk "GShade-C-Shaders.zip" "tmpDir" && rm "GShade-C-Shaders.zip" && cp -af "tmpDir/GShade-C-Shaders-main/gshade-shaders" "."
+    ditto -xk "GShade-C-Shaders.zip" "tmpDir" && rm "GShade-C-Shaders.zip" && cp -af "tmpDir/GShade-C-Shaders-main/gshade-shaders" "gshade-shaders"
     ditto -xk "iMMERSE-main.zip" "tmpDir" && rm "iMMERSE-main.zip" && cp -af "tmpDir/iMMERSE-main/Shaders" "gshade-shaders" && cp -af "tmpDir/iMMERSE-main/Textures" "gshade-shaders"
     ditto -xk "METEOR-main.zip" "tmpDir" && rm "METEOR-main.zip" && cp -af "tmpDir/METEOR-main/Shaders" "gshade-shaders" && cp -af "tmpDir/METEOR-main/Textures" "gshade-shaders"
     ditto -xk "SHADERDECK-main.zip" "tmpDir" && rm "SHADERDECK-main.zip" && cp -af "tmpDir/SHADERDECK-main/Shaders" "gshade-shaders" && cp -af "tmpDir/SHADERDECK-main/textures/"* "gshade-shaders/Textures" && rm -r "tmpDir" #just case-sensitivity things
   else
     unzip -qquo "GShade-Presets-master.zip" -d "tmpDir/gshade-presets" && rm "GShade-Presets-master.zip" && cp -af "tmpDir/gshade-presets/GShade-Presets-master/FFXIV/"* "gshade-presets"
-    unzip -qquo "GShade-C-Shaders-main.zip" -d "tmpDir" && rm "GShade-C-Shaders-main.zip" && cp -af "tmpDir/GShade-C-Shaders-main/gshade-shaders" "."
+    unzip -qquo "GShade-C-Shaders-main.zip" -d "tmpDir" && rm "GShade-C-Shaders-main.zip" && cp -af "tmpDir/GShade-C-Shaders-main/gshade-shaders" "gshade-shaders"
     unzip -qquo "iMMERSE-main.zip" -d "tmpDir" && rm "iMMERSE-main.zip" && cp -af "tmpDir/iMMERSE-main/Shaders" "gshade-shaders" && cp -af "tmpDir/iMMERSE-main/Textures" "gshade-shaders"
     unzip -qquo "METEOR-main.zip" -d "tmpDir" && rm "METEOR-main.zip" && cp -af "tmpDir/METEOR-main/Shaders" "gshade-shaders" && cp -af "tmpDir/METEOR-main/Textures" "gshade-shaders"
     unzip -qquo "SHADERDECK-main.zip" -d "tmpDir" && rm "SHADERDECK-main.zip" && cp -af "tmpDir/SHADERDECK-main/Shaders" "gshade-shaders" && cp -af "tmpDir/SHADERDECK-main/textures/"* "gshade-shaders/Textures" && rm -r "tmpDir" #just case-sensitivity things
